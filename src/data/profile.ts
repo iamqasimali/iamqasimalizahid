@@ -38,7 +38,7 @@ fintech, e-commerce, and logistics sectors.`,
 
 export const stats = [
   { label: "Years of Experience", value: "7+", icon: "Calendar" },
-  { label: "Projects Delivered", value: "7+", icon: "Rocket" },
-  { label: "APIs Built", value: "50+", icon: "Zap" },
+  { label: "Projects Delivered", value: "35+", icon: "Rocket" },
+  { label: "APIs Built", value: "450+", icon: "Zap" },
   { label: "Happy Clients", value: "20+", icon: "Users" },
 ];
