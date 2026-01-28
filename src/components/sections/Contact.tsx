@@ -11,7 +11,6 @@ import {
   Send,
   CheckCircle,
   AlertCircle,
-  MessageCircle,
 } from "lucide-react";
 import SectionTitle from "../ui/SectionTitle";
 import Button from "../ui/Button";
