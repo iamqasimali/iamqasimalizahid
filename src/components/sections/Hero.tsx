@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FitText, Reveal } from "../ui";
 import { profile, stats } from "../../data";
-import portrait from "../../assets/images/Qasim_sitting_on_chair.png";
+import portrait from "../../assets/images/qasim-portrait.jpg";
 
 const Hero = () => {
   return (

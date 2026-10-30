@@ -1,0 +1,13 @@
+{
+  "name": "Qasim Ali Zahid",
+  "short_name": "Qasim.Z",
+  "description": "Senior full stack engineer: Ruby on Rails, React and AI integrations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

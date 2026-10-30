@@ -4,22 +4,20 @@ import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import { usePath, useScrollOnNavigate } from "./lib/router";
-import { profile } from "./data";
+import { applyRouteMeta } from "./lib/seo";
 
-const pages: Record<string, { title: string; Component: () => React.ReactElement }> = {
-  "/": { title: `${profile.name} | Senior Full Stack Engineer`, Component: HomePage },
-  "/projects": { title: `Projects | ${profile.name}`, Component: ProjectsPage },
-  "/about": { title: `About | ${profile.name}`, Component: AboutPage },
+const pages: Record<string, () => React.ReactElement> = {
+  "/": HomePage,
+  "/projects": ProjectsPage,
+  "/about": AboutPage,
 };
 
 function App() {
   const path = usePath();
-  const page = pages[path] ?? pages["/"];
+  const Page = pages[path] ?? HomePage;
 
   useScrollOnNavigate(path);
-  useEffect(() => {
-    document.title = page.title;
-  }, [page]);
+  useEffect(() => applyRouteMeta(path), [path]);
 
   return (
     <div className="min-h-screen bg-canvas text-ink">
@@ -31,7 +29,7 @@ function App() {
       </a>
       <Header />
       <main id="main" key={path}>
-        <page.Component />
+        <Page />
       </main>
       <Footer />
     </div>

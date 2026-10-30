@@ -1,0 +1,20 @@
+{
+  "siteUrl": "https://iamqasimalizahid-dev.netlify.app",
+  "siteName": "Qasim Ali Zahid",
+  "twitter": "@QasimA6",
+  "image": "/og-image.jpg",
+  "routes": {
+    "/": {
+      "title": "Qasim Ali Zahid | Senior Full Stack Engineer (Ruby on Rails, React, AI)",
+      "description": "Senior full stack engineer in Lahore, Pakistan with 7+ years building Ruby on Rails APIs, React and TypeScript apps, and AI integrations. Available for remote and freelance work."
+    },
+    "/projects": {
+      "title": "Projects | Qasim Ali Zahid, Full Stack Engineer",
+      "description": "Live products and client work by Qasim Ali Zahid: healthcare, travel, marketplace and e-commerce platforms built with Ruby on Rails, React, Next.js and AI, plus open-source tools."
+    },
+    "/about": {
+      "title": "About | Qasim Ali Zahid, Senior Full Stack Engineer",
+      "description": "Qasim Ali Zahid is a senior full stack engineer in Lahore, Pakistan. 7+ years of Ruby on Rails, React and TypeScript at QuickGem Solutions, OzaCloud, Healthwire and Techcreatix."
+    }
+  }
+}

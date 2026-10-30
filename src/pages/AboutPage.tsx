@@ -1,7 +1,7 @@
 import { Reveal, PillLink, TechIcon } from "../components/ui";
 import { Experience } from "../components/sections";
 import { mainSkills, profile, skillGroups, spokenLanguages, stats } from "../data";
-import portrait from "../assets/images/Qasim_sitting_on_chair.png";
+import portrait from "../assets/images/qasim-portrait.jpg";
 
 const AboutPage = () => (
   <>
