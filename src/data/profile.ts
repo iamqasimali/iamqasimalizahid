@@ -1,44 +1,30 @@
 export const profile = {
   name: "Qasim Ali Zahid",
-  title: "Senior Software Engineer | Full Stack Developer",
-  taglines: [
-    "Building APIs that power businesses",
-    "Integrating AI into modern applications",
-    "Creating seamless user experiences",
-    "7+ years of engineering excellence",
-  ],
-  location: "Islamabad/Lahore, Pakistan",
+  shortName: "Qasim.Z",
+  role: "Senior Full Stack Engineer",
+  roleSub: "& AI integrations",
+  location: "Lahore, Pakistan",
+  statement:
+    "A full stack engineer from Pakistan, building Rails APIs, React dashboards and the AI features that sit on top of them.",
   email: "iamqasimalizahid@gmail.com",
   phone: "+92-3035570992",
+  whatsapp: "https://wa.me/923035570992",
   linkedin: "https://www.linkedin.com/in/qasim-ali-zahid/",
   github: "https://github.com/iamqasimali",
+  twitter: "https://x.com/QasimA6",
+  company: { name: "QuickGem Solutions", url: "http://quickgemsolutions.com/" },
   education: {
-    degree: "Bachelor in Computer Sciences",
-    institution: "University of Sargodha, Pakistan",
-    cgpa: "3.35/4.00",
-    duration: "2015 - 2019",
+    degree: "BS Computer Science",
+    institution: "University of Sargodha",
+    duration: "2015 – 2019",
   },
-  about: `I'm a Senior Full Stack Developer with 7+ years of experience building
-scalable web applications and APIs. Currently working at QuickGemSolutions,
-I specialize in Ruby on Rails backend development, React frontend engineering,
-and integrating cutting-edge AI technologies into modern applications.
-
-My journey in software development started in 2019, and since then, I've had
-the privilege of working with startups and enterprises across healthcare,
-fintech, e-commerce, and logistics sectors.`,
-  highlights: [
-    "Architect and develop RESTful APIs using Ruby on Rails & Python",
-    "Build responsive React/Next.js applications with TypeScript",
-    "Integrate Generative AI (OpenAI, Claude, LangChain) into applications",
-    "Design scalable database schemas (PostgreSQL, MongoDB, Vector DBs)",
-    "Implement cloud infrastructure on AWS and manage CI/CD pipelines",
-    "Lead development teams and mentor junior developers",
-  ],
+  about:
+    "I've spent 7+ years shipping web products for startups and enterprises across healthcare, fintech, e-commerce and logistics. Most days that means Ruby on Rails on the backend, React and TypeScript on the front, and more and more, LLMs wired into the middle. I lead a small team at QuickGem Solutions and still write code every day.",
 };
 
 export const stats = [
-  { label: "Years of Experience", value: "7+", icon: "Calendar" },
-  { label: "Projects Delivered", value: "35+", icon: "Rocket" },
-  { label: "APIs Built", value: "450+", icon: "Zap" },
-  { label: "Happy Clients", value: "20+", icon: "Users" },
+  { label: "Years shipping", value: "7+" },
+  { label: "Projects delivered", value: "35+" },
+  { label: "APIs built", value: "450+" },
+  { label: "Happy clients", value: "20+" },
 ];

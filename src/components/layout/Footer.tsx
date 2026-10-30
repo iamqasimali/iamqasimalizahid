@@ -1,126 +1,131 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
-import { profile } from "../../data";
+import { ArrowUpRight, Github, Linkedin, MessageCircle } from "lucide-react";
+import { FitText, PillLink, Reveal } from "../ui";
+import { profile, projects } from "../../data";
+import { Link } from "../../lib/Link";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+const XIcon = () => (
+  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+const columns = [
+  {
+    title: "Pages",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Projects", href: "/projects" },
+      { label: "Services", href: "/#services" },
+      { label: "About", href: "/about" },
+    ],
+  },
+  {
+    title: "Elsewhere",
+    links: [
+      { label: "GitHub", href: profile.github },
+      { label: "LinkedIn", href: profile.linkedin },
+      { label: "X", href: profile.twitter },
+      { label: "Resume (PDF)", href: "/resume.pdf" },
+    ],
+  },
+  {
+    title: "Live projects",
+    links: projects.filter((p) => p.url).map((p) => ({ label: p.name, href: p.url! })),
+  },
+  {
+    title: "Company",
+    links: [{ label: profile.company.name, href: profile.company.url }],
+  },
+];
 
-  const socialLinks = [
-    {
-      icon: Github,
-      href: profile.github,
-      label: "GitHub",
-    },
-    {
-      icon: Linkedin,
-      href: profile.linkedin,
-      label: "LinkedIn",
-    },
-    {
-      icon: Mail,
-      href: `mailto:${profile.email}`,
-      label: "Email",
-    },
-  ];
+const socials = [
+  { label: "GitHub", href: profile.github, icon: <Github size={16} /> },
+  { label: "LinkedIn", href: profile.linkedin, icon: <Linkedin size={16} /> },
+  { label: "X", href: profile.twitter, icon: <XIcon /> },
+  { label: "WhatsApp", href: profile.whatsapp, icon: <MessageCircle size={16} /> },
+];
 
-  const quickLinks = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
-  ];
+const isExternal = (href: string) => href.startsWith("http");
 
-  return (
-    <footer className="bg-slate-950 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* About column */}
-          <div>
-            <h3 className="text-2xl font-bold text-gradient mb-4">
-              {profile.name.split(" ")[0]}
-            </h3>
-            <p className="text-slate-400 mb-6">
-              Senior Full Stack Developer specializing in Ruby on Rails and
-              React. Building scalable web applications for 7+ years.
-            </p>
-            {/* Social links */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-lg glass text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors"
-                  aria-label={link.label}
-                >
-                  <link.icon className="w-5 h-5" />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick links column */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact column */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4">
-              Get In Touch
-            </h4>
-            <div className="space-y-3 text-slate-400">
-              <p>{profile.email}</p>
-              <p>{profile.phone}</p>
-              <p>{profile.location}</p>
-            </div>
+const Footer = () => (
+  <footer id="contact" className="overflow-hidden bg-sand">
+    <div className="container-page pt-20 md:pt-28">
+      <Reveal className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-start">
+        <div>
+          <h2 className="display text-5xl font-medium md:text-6xl">
+            Have any project
+            <br />
+            idea in mind?
+          </h2>
+          <div className="mt-8">
+            <PillLink href={`mailto:${profile.email}`}>Start a project</PillLink>
           </div>
         </div>
-
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm flex items-center gap-1">
-            &copy; {currentYear} {profile.name}. Made with{" "}
-            <Heart className="w-4 h-4 text-red-500 fill-current" /> using React
-            & Tailwind CSS
-          </p>
-
-          {/* Back to top button */}
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg glass text-slate-400 hover:text-white hover:border-blue-500/50 transition-colors"
+        <div className="lg:text-right">
+          <a
+            href={`mailto:${profile.email}`}
+            className="display group inline-flex items-start gap-2 text-[6.4vw] font-medium break-all hover:opacity-70 lg:text-5xl xl:text-6xl"
           >
-            <span className="text-sm">Back to top</span>
-            <ArrowUp className="w-4 h-4" />
-          </motion.button>
+            {profile.email}
+            <ArrowUpRight className="mt-1 hidden shrink-0 sm:block" size={28} />
+          </a>
+          <p className="mt-3 text-sm text-muted">
+            <a href={`tel:${profile.phone}`} className="hover:text-ink">
+              {profile.phone}
+            </a>{" "}
+            · Replies within one working day
+          </p>
+        </div>
+      </Reveal>
+
+      <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_2fr]">
+        <div className="flex gap-2">
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="grid size-10 place-items-center rounded-full border border-line bg-white transition-colors hover:bg-ink hover:text-white"
+            >
+              {s.icon}
+            </a>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
+          {columns.map((c) => (
+            <div key={c.title}>
+              <p className="text-xs text-muted">{c.title}</p>
+              <ul className="mt-4 space-y-2.5">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      {...(isExternal(l.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="text-sm hover:text-muted"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="mt-16 flex flex-col gap-2 border-t border-line pt-6 text-xs text-muted md:flex-row md:justify-between">
+        <p>Designed and built by {profile.name}</p>
+        <p>© {new Date().getFullYear()} All rights reserved</p>
+        <p>{profile.location} · UTC+5</p>
+      </div>
+
+      <div className="mt-8 -mb-[0.18em] select-none">
+        <FitText text={profile.name} ariaHidden />
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

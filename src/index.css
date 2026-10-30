@@ -1,111 +1,83 @@
-/* Custom fonts - must be before tailwind import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
 
 @import "tailwindcss";
 
-/* CSS Variables for theming */
-:root {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-}
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'General Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-/* Base styles */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+  --color-canvas: #ffffff;
+  --color-sand: #f2f2f2;
+  --color-studio: #e9e9e9;
+  --color-line: #e6e6e6;
+  --color-ink: #0f1012;
+  --color-ink-line: #2c2f35;
+  --color-muted: #63676f;
+  --color-subtle: #a1a5ad;
+  --color-mint: #6cd5cb;
+
+  --radius-panel: 2rem;
+  --radius-card: 1.25rem;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a1a2e;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #4f46e5;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6366f1;
-}
-
-/* Selection color */
 ::selection {
-  background: #4f46e5;
-  color: white;
+  background: var(--color-ink);
+  color: #fff;
 }
 
-/* Custom utilities */
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500;
+  .display {
+    font-family: var(--font-display);
+    letter-spacing: -0.045em;
+    line-height: 0.95;
   }
 
-  .bg-gradient-radial {
-    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  .container-page {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
   }
 
-  .animate-float-delayed {
-    animation: float 6s ease-in-out 2s infinite;
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 4.5rem;
+    }
   }
 
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
-  }
-
-  .glass-dark {
-    @apply bg-black/20 backdrop-blur-lg border border-white/10;
+  /* Speckled band behind the portrait */
+  .speckle {
+    background-image: radial-gradient(circle, #0f1012 1px, transparent 1.4px);
+    background-size: 11px 9px;
+    mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    opacity: 0.55;
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Code block styling */
-code {
-  font-family: var(--font-mono);
-}
-
-/* Gradient text animation */
-@keyframes gradient-x {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 3s ease infinite;
 }

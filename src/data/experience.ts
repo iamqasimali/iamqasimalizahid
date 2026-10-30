@@ -4,13 +4,15 @@ export interface Experience {
   location: string;
   duration: string;
   type: string;
+  summary: string;
   achievements: string[];
   tech: string[];
 }
 
 export const experiences: Experience[] = [
   {
-    company: "QuickGemSolutions",
+    company: "QuickGem Solutions",
+    summary: "Lead a team building Rails APIs and React/TypeScript front ends, own architecture calls, mentor developers and turn raw data into business KPIs.",
     position: "Senior Engineer",
     location: "Islamabad, Pakistan",
     duration: "April 2024 - Present",
@@ -26,7 +28,8 @@ export const experiences: Experience[] = [
     tech: ["Ruby on Rails", "React", "TypeScript", "PostgreSQL", "RSpec", "AWS"],
   },
   {
-    company: "Ozacloud",
+    company: "OzaCloud",
+    summary: "Built and maintained Rails REST APIs, integrated third-party services and kept RSpec coverage high for a London-based team.",
     position: "Senior Engineer",
     location: "London - Remote",
     duration: "Feb 2024 - April 2024",
@@ -40,6 +43,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Healthwire",
+    summary: "Migrated a legacy Rails app to the current release and built APIs for one of Pakistan's leading digital healthcare platforms.",
     position: "Software Engineer",
     location: "Lahore, Pakistan",
     duration: "Nov 2022 - Apr 2024",
@@ -53,6 +57,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Techcreatix",
+    summary: "Built Rails web apps and REST APIs with payment gateways, mailing, SMS and notification integrations.",
     position: "Software Engineer",
     location: "Lahore, Pakistan",
     duration: "Jun 2019 - Nov 2022",

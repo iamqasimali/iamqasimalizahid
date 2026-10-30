@@ -1,3 +1,42 @@
+import spectraHome from "../assets/images/projects/spectracare-home.jpg";
+import spectraFeatures from "../assets/images/projects/spectracare-features.jpg";
+import spectraPricing from "../assets/images/projects/spectracare-pricing.jpg";
+import spectraDashboard from "../assets/images/projects/spectracare-dashboard.jpg";
+import spectraOrgs from "../assets/images/projects/spectracare-organizations.jpg";
+import roaviHome from "../assets/images/projects/roavi-home.jpg";
+import roaviExplore from "../assets/images/projects/roavi-explore.jpg";
+import roaviCommunity from "../assets/images/projects/roavi-community.jpg";
+import roaviProfile from "../assets/images/projects/roavi-profile.jpg";
+import roaviBlog from "../assets/images/projects/roavi-blog.jpg";
+import shepherdHome from "../assets/images/projects/shepherd-home.jpg";
+import shepherdDestinations from "../assets/images/projects/shepherd-destinations.jpg";
+import shepherdTrek from "../assets/images/projects/shepherd-trek.jpg";
+import shepherdGallery from "../assets/images/projects/shepherd-gallery.jpg";
+import shepherdBlog from "../assets/images/projects/shepherd-blog.jpg";
+import goodvibesHome from "../assets/images/projects/goodvibes-home.jpg";
+import goodvibesShop from "../assets/images/projects/goodvibes-shop.jpg";
+import goodvibesFormula from "../assets/images/projects/goodvibes-formula.jpg";
+import goodvibesCalculator from "../assets/images/projects/goodvibes-calculator.jpg";
+import scandinavianHome from "../assets/images/projects/scandinavian-home.jpg";
+import scandinavianOfferings from "../assets/images/projects/scandinavian-offerings.jpg";
+import scandinavianProduct from "../assets/images/projects/scandinavian-product.jpg";
+import scandinavianCiso from "../assets/images/projects/scandinavian-ciso.jpg";
+import scandinavianContact from "../assets/images/projects/scandinavian-contact.jpg";
+import skjohansenHome from "../assets/images/projects/skjohansen-home.jpg";
+import skjohansenBlog from "../assets/images/projects/skjohansen-blog.jpg";
+import skjohansenRadar from "../assets/images/projects/skjohansen-radar.jpg";
+import skjohansenSkills from "../assets/images/projects/skjohansen-skills.jpg";
+import skjohansenPost from "../assets/images/projects/skjohansen-post.jpg";
+import agencyHome from "../assets/images/projects/agency-home.jpg";
+import agencyModels from "../assets/images/projects/agency-models.jpg";
+import agencyInfluencers from "../assets/images/projects/agency-influencers.jpg";
+import agencyCreatives from "../assets/images/projects/agency-creatives.jpg";
+import tlvcHome from "../assets/images/projects/tlvc-home.jpg";
+import tlvcServices from "../assets/images/projects/tlvc-services.jpg";
+import tlvcStories from "../assets/images/projects/tlvc-stories.jpg";
+import tlvcApply from "../assets/images/projects/tlvc-apply.jpg";
+import tlvcAbout from "../assets/images/projects/tlvc-about.jpg";
+
 export interface Project {
   id: string;
   name: string;
@@ -8,9 +47,33 @@ export interface Project {
   highlights: string[];
   techStack: string[];
   color: string;
+  url?: string;
+  images?: string[];
 }
 
 export const projects: Project[] = [
+  {
+    id: "eduhealth",
+    name: "EduHealth",
+    tagline: "Multi-Tenant Healthcare Platform",
+    description:
+      "Multi-tenant platform serving many clinics and domains, with a central prescription system that blocks duplicate medications, real-time chat and video consultations, and workflows built around patient safety and medical data integrity.",
+    category: "Healthcare",
+    role: "Full Stack Developer",
+    highlights: [
+      "Built a multi-tenant platform supporting multiple domains and clinics",
+      "Developed a centralized prescription system to prevent duplicate medications",
+      "Implemented real-time chat & video consultation (Agora integration)",
+      "Designed a scalable Ruby on Rails backend with modular architecture",
+      "Built a performant React (Vite) frontend with optimized UX",
+      "Deployed on AWS with CI/CD pipelines",
+      "Focused on patient management, doctor workflows, and medical data integrity",
+    ],
+    techStack: ["Ruby on Rails", "React", "Vite", "Agora", "AWS", "CI/CD"],
+    color: "from-sky-500 to-teal-500",
+    url: "https://spectracare.health/",
+    images: [spectraHome, spectraDashboard, spectraOrgs, spectraFeatures, spectraPricing],
+  },
   {
     id: "roavi",
     name: "ROAVI",
@@ -37,6 +100,117 @@ export const projects: Project[] = [
       "Netlify",
     ],
     color: "from-blue-500 to-cyan-500",
+    url: "https://roavi.com/",
+    images: [roaviHome, roaviExplore, roaviCommunity, roaviProfile, roaviBlog],
+  },
+  {
+    id: "shepherd",
+    name: "Shepherd Travels",
+    tagline: "Treks & Tours in the Karakoram",
+    description:
+      "Booking site for a trekking company in Skardu and Gilgit-Baltistan: expeditions, treks, tours and safaris, a destination guide for each route, a photo gallery and a travel blog.",
+    category: "Travel & Tourism",
+    role: "Full Stack Developer",
+    highlights: [
+      "Built destination pages for every trek and route in Gilgit-Baltistan",
+      "Added a photo gallery and a blog for travel guides",
+      "WhatsApp contact for quick bookings",
+    ],
+    techStack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    color: "from-green-600 to-emerald-500",
+    url: "https://www.shepherdtravels.com/",
+    images: [shepherdHome, shepherdDestinations, shepherdTrek, shepherdGallery, shepherdBlog],
+  },
+  {
+    id: "goodvibes",
+    name: "Good Vibes Pet Food",
+    tagline: "Gently Cooked Dog Food, USA-Made",
+    description:
+      "E-commerce site for a California dog food brand: a shop with four formulas, product pages, a feeding calculator, recurring orders and a store locator.",
+    category: "E-commerce",
+    role: "Full Stack Developer",
+    highlights: [
+      "Built the shop and a page for each formula",
+      "Feeding calculator that recommends daily portions",
+      "Customer accounts with recurring deliveries",
+      "Store locator for retail partners",
+    ],
+    techStack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+    color: "from-orange-500 to-amber-400",
+    url: "https://goodvibespetfood-web.vercel.app/",
+    images: [goodvibesHome, goodvibesShop, goodvibesFormula, goodvibesCalculator],
+  },
+  {
+    id: "agencypics",
+    name: "Agency.Pics",
+    tagline: "Search Platform for Models & Creatives",
+    description:
+      "Global search platform for models, influencers and creatives, with filterable talent directories, verified profiles, service listings and a jobs board.",
+    category: "Marketplace",
+    role: "Full Stack Developer",
+    highlights: [
+      "Searchable directories for models, influencers and creatives",
+      "Filters for location, category, gender and verified users",
+      "Jobs board and service listings for agencies and brands",
+    ],
+    techStack: ["Ruby on Rails", "Hotwire", "React", "Cloudflare"],
+    color: "from-lime-400 to-orange-500",
+    url: "https://agency.pics/",
+    images: [agencyHome, agencyModels, agencyInfluencers, agencyCreatives],
+  },
+  {
+    id: "tlvc",
+    name: "TLVC",
+    tagline: "Visa & Immigration Consultancy",
+    description:
+      "Website for a visa and immigration consultancy in Pakistan: service pages for student, work and tourist visas, success stories, free assessment and consultation booking, and an online visa application form.",
+    category: "Immigration Services",
+    role: "Full Stack Developer",
+    highlights: [
+      "Service pages for each visa type",
+      "Free assessment and consultation booking",
+      "Online visa application form",
+    ],
+    techStack: ["React", "Vite", "Tailwind CSS", "Netlify"],
+    color: "from-blue-600 to-sky-400",
+    url: "https://tlvcpk.com/",
+    images: [tlvcHome, tlvcServices, tlvcStories, tlvcApply, tlvcAbout],
+  },
+  {
+    id: "scandinaviandev",
+    name: "ScandinavianDev",
+    tagline: "Security Consultancy, Sweden",
+    description:
+      "Website for a Swedish security consultancy, with a page for each of its five offerings (security engineering training, security champions, tabletop exercises, fractional CISO and due diligence) plus an about and contact page.",
+    category: "Security Consulting",
+    role: "Web Developer",
+    highlights: [
+      "Offerings overview and a page for each service",
+      "Custom diagrams and illustrations for each offering",
+      "Static site on GitHub Pages",
+    ],
+    techStack: ["Jekyll", "HTML5", "CSS", "GitHub Pages"],
+    color: "from-blue-700 to-blue-500",
+    url: "https://scandinavian.dev/",
+    images: [scandinavianHome, scandinavianOfferings, scandinavianProduct, scandinavianCiso, scandinavianContact],
+  },
+  {
+    id: "skjohansen",
+    name: "Stephan Kaas Johansen",
+    tagline: "Software, Security & AI Governance",
+    description:
+      "Personal site for a security advisor and teacher, with writing on AI governance and cybersecurity, a tech radar, and a skills page.",
+    category: "Personal Brand",
+    role: "Web Developer",
+    highlights: [
+      "Blog with topic filters",
+      "Interactive tech radar",
+      "Skills and engagements pages",
+    ],
+    techStack: ["Jekyll", "HTML5", "CSS", "GitHub Pages"],
+    color: "from-orange-600 to-red-500",
+    url: "https://skjohansen.com/",
+    images: [skjohansenHome, skjohansenBlog, skjohansenRadar, skjohansenSkills, skjohansenPost],
   },
   {
     id: "intimegdt",

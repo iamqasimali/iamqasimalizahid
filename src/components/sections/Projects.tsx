@@ -1,259 +1,122 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { ExternalLink, X, Layers, Code2 } from "lucide-react";
-import SectionTitle from "../ui/SectionTitle";
-import Button from "../ui/Button";
+import { ArrowUpRight } from "lucide-react";
+import { PillLink, Reveal, SectionHeading, TechIcon } from "../ui";
 import { projects } from "../../data";
+import type { Project } from "../../data";
 
-const ProjectCard = ({
-  project,
-  index,
-  onClick,
-}: {
-  project: (typeof projects)[0];
-  index: number;
-  onClick: () => void;
-}) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+// Alternating panel styles stand in for screenshots.
+const panels = ["bg-ink text-white", "bg-studio text-ink", "bg-sand text-ink", "bg-ink-line text-white"];
+
+const Cover = ({ project, index }: { project: Project; index: number }) => {
+  const [cover] = project.images ?? [];
+
+  if (cover) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden rounded-card border border-line bg-sand">
+        <img
+          src={cover}
+          alt={`${project.name} home page`}
+          loading="lazy"
+          className="size-full object-cover object-top transition-transform duration-700 ease-out-soft group-hover:scale-[1.03]"
+        />
+        {project.url && (
+          <span className="absolute right-4 bottom-4 grid size-10 place-items-center rounded-full bg-white text-ink opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+            <ArrowUpRight size={18} />
+          </span>
+        )}
+      </div>
+    );
+  }
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onClick={onClick}
-      className="group cursor-pointer"
+    <div
+      className={`relative flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-card p-6 md:p-8 ${panels[index % panels.length]}`}
     >
-      <div className="relative h-full glass rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-500">
-        {/* Gradient background */}
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}
-        />
+      <div className="flex justify-between text-xs opacity-60">
+        <span>{project.category}</span>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+      </div>
+      <div className="transition-transform duration-700 ease-out-soft group-hover:-translate-y-2">
+        <p className="display text-5xl font-medium md:text-7xl">{project.name}</p>
+        <p className="mt-3 max-w-sm text-sm opacity-70">{project.tagline}</p>
+      </div>
+    </div>
+  );
+};
 
-        {/* Content */}
-        <div className="relative p-6 h-full flex flex-col">
-          {/* Category badge */}
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${project.color} bg-clip-text text-transparent border border-current`}
-              style={{
-                borderColor: "currentColor",
-                borderImage: `linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)) 1`,
-              }}
-            >
-              {project.category}
-            </span>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="p-2 rounded-lg bg-white/5 text-slate-400 group-hover:text-white transition-colors"
-            >
-              <ExternalLink className="w-4 h-4" />
-            </motion.div>
-          </div>
+export const ProjectCard = ({ project: p, index }: { project: Project; index: number }) => {
+  const extraShots = p.images?.slice(1) ?? [];
+  const Wrapper = p.url ? "a" : "div";
+  const linkProps = p.url ? { href: p.url, target: "_blank", rel: "noopener noreferrer" } : {};
 
-          {/* Project name */}
-          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gradient transition-colors">
-            {project.name}
-          </h3>
-
-          {/* Tagline */}
-          <p className="text-slate-400 mb-4">{project.tagline}</p>
-
-          {/* Description */}
-          <p className="text-slate-500 text-sm mb-6 flex-grow line-clamp-3">
-            {project.description}
-          </p>
-
-          {/* Role */}
-          <div className="flex items-center gap-2 mb-4 text-sm">
-            <Layers className="w-4 h-4 text-blue-400" />
-            <span className="text-slate-400">Role:</span>
-            <span className="text-white">{project.role}</span>
-          </div>
-
-          {/* Tech stack preview */}
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.slice(0, 4).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-1 rounded-md bg-slate-800/50 text-slate-400 text-xs border border-slate-700/50"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.techStack.length > 4 && (
-              <span className="px-2 py-1 rounded-md bg-slate-800/50 text-slate-500 text-xs">
-                +{project.techStack.length - 4} more
+  return (
+    <article>
+      <Wrapper {...linkProps} className="group block">
+        <Cover project={p} index={index} />
+        <div className="mt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <h3 className="inline-flex items-center gap-2 text-lg font-semibold">
+            {p.name}
+            {p.url && (
+              <span className="text-xs font-normal text-muted group-hover:text-ink">
+                {new URL(p.url).hostname}
               </span>
             )}
-          </div>
-        </div>
-
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-      </div>
-    </motion.div>
-  );
-};
-
-const ProjectModal = ({
-  project,
-  onClose,
-}: {
-  project: (typeof projects)[0];
-  onClose: () => void;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass rounded-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors z-10"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        {/* Header with gradient */}
-        <div
-          className={`relative h-32 bg-gradient-to-r ${project.color} rounded-t-2xl`}
-        >
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900 to-transparent" />
-        </div>
-
-        {/* Content */}
-        <div className="relative -mt-12 px-8 pb-8">
-          {/* Category badge */}
-          <span className="inline-block px-4 py-2 rounded-full bg-slate-800 text-white text-sm font-semibold mb-4">
-            {project.category}
-          </span>
-
-          <h2 className="text-3xl font-bold text-white mb-2">{project.name}</h2>
-          <p className="text-xl text-slate-400 mb-6">{project.tagline}</p>
-
-          <p className="text-slate-300 mb-8 leading-relaxed">
-            {project.description}
-          </p>
-
-          {/* Role */}
-          <div className="flex items-center gap-3 mb-6 p-4 rounded-xl bg-slate-800/50">
-            <Code2 className="w-5 h-5 text-blue-400" />
-            <span className="text-slate-400">My Role:</span>
-            <span className="text-white font-semibold">{project.role}</span>
-          </div>
-
-          {/* Highlights */}
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Key Highlights
           </h3>
-          <ul className="space-y-3 mb-8">
-            {project.highlights.map((highlight, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05 }}
-                className="flex items-start gap-3"
-              >
-                <span
-                  className={`w-2 h-2 mt-2 rounded-full bg-gradient-to-r ${project.color}`}
-                />
-                <span className="text-slate-300">{highlight}</span>
-              </motion.li>
+          <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
+            {p.techStack.slice(0, 4).map((t) => (
+              <li key={t} className="inline-flex items-center gap-1.5">
+                <TechIcon name={t} size={12} />
+                {t}
+              </li>
             ))}
           </ul>
-
-          {/* Tech stack */}
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Technologies Used
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech, index) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.03 }}
-                className="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm border border-slate-700 hover:border-blue-500/50 transition-colors"
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </div>
         </div>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
-  const [showAll, setShowAll] = useState(false);
-
-  const displayedProjects = showAll ? projects : projects.slice(0, 6);
-
-  return (
-    <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
-      <div className="absolute top-1/3 -left-64 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 -right-64 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionTitle
-          title="Featured Projects"
-          subtitle="A showcase of my work across various industries and technologies"
-        />
-
-        {/* Projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {displayedProjects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              onClick={() => setSelectedProject(project)}
+      </Wrapper>
+      <p className="mt-2 text-[15px] leading-relaxed text-muted">
+        <span className="text-ink">{p.role}:</span> {p.description}
+      </p>
+      {extraShots.length > 0 && (
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {extraShots.map((src, n) => (
+            <img
+              key={src}
+              src={src}
+              alt={`${p.name} screenshot ${n + 2}`}
+              loading="lazy"
+              className="aspect-[16/10] w-full rounded-lg border border-line object-cover object-top"
             />
           ))}
         </div>
-
-        {/* Show more button */}
-        {projects.length > 6 && !showAll && (
-          <div className="text-center">
-            <Button variant="outline" onClick={() => setShowAll(true)}>
-              View All Projects
-            </Button>
-          </div>
-        )}
-      </div>
-
-      {/* Project modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
-        )}
-      </AnimatePresence>
-    </section>
+      )}
+    </article>
   );
 };
+
+export const ProjectGrid = ({ items }: { items: Project[] }) => (
+  <div className="grid gap-x-6 gap-y-16 md:grid-cols-2">
+    {items.map((p, i) => (
+      <Reveal key={p.id} delay={(i % 2) * 0.08}>
+        <ProjectCard project={p} index={i} />
+      </Reveal>
+    ))}
+  </div>
+);
+
+// Home page preview: the first few projects plus a link to the full list.
+const Projects = ({ limit = 4 }: { limit?: number }) => (
+  <section id="projects" className="py-24 md:py-36">
+    <div className="container-page">
+      <SectionHeading
+        title="Selected Works"
+        subtitle="Products I've built for clients in healthcare, travel, data, fintech and logistics."
+      />
+      <ProjectGrid items={projects.slice(0, limit)} />
+      {projects.length > limit && (
+        <div className="mt-16 flex justify-center">
+          <PillLink href="/projects">View all {projects.length} projects</PillLink>
+        </div>
+      )}
+    </div>
+  </section>
+);
 
 export default Projects;
