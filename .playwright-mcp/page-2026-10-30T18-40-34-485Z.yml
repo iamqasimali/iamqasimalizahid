@@ -1,0 +1,132 @@
+- generic [ref=f76e3]:
+  - navigation [ref=f76e5]:
+    - generic [ref=f76e8]:
+      - generic [ref=f76e9]: 🚀 Global Data Marketplace
+      - generic [ref=f76e11]: Access thousands of datasets from trusted providers
+    - generic [ref=f76e13]:
+      - generic [ref=f76e14]:
+        - link [ref=f76e16] [cursor=pointer]:
+          - /url: /
+          - img "IntimeGDT" [ref=f76e17]
+        - generic [ref=f76e18]:
+          - link "Marketplace" [ref=f76e19] [cursor=pointer]:
+            - /url: /providers
+          - link "Pricing" [ref=f76e20] [cursor=pointer]:
+            - /url: /pricing
+          - link "Solutions" [ref=f76e21] [cursor=pointer]:
+            - /url: /solutions
+          - link "Documentation" [ref=f76e22] [cursor=pointer]:
+            - /url: /docs
+      - textbox "Search Providers and Data Products" [ref=f76e29]
+      - generic [ref=f76e30]:
+        - link "Sign In" [ref=f76e31] [cursor=pointer]:
+          - /url: /auth/sign-in
+        - link "Start Free" [ref=f76e32] [cursor=pointer]:
+          - /url: /auth/sign-up
+  - main [ref=f76e33]:
+    - generic [ref=f76e34]:
+      - generic [ref=f76e39]:
+        - generic [ref=f76e40]:
+          - generic [ref=f76e41]:
+            - heading "Find and Use Unique 3rd Party Data with Confidence" [level=1] [ref=f76e42]
+            - heading "Your Global Marketplace for Data and AI Solutions" [level=2] [ref=f76e43]
+          - generic [ref=f76e44]:
+            - paragraph [ref=f76e45]: Efficiently explore thousands of data providers offering free, curated, and custom data for AI, machine learning, and analytics. Accelerate your business with cutting-edge technology and services tailored to your needs.
+            - paragraph [ref=f76e46]:
+              - generic [ref=f76e47]: Find, Try, and Buy
+              - text: the data, tools, and solutions that power innovation.
+          - generic [ref=f76e48]:
+            - link "Browse Data Providers" [ref=f76e49] [cursor=pointer]:
+              - /url: /providers
+            - link "Start Free Trial" [ref=f76e50] [cursor=pointer]:
+              - /url: /pricing
+          - generic [ref=f76e52]:
+            - generic [ref=f76e53]: Trusted by 10,000+ Companies
+            - generic [ref=f76e56]: Global Data Marketplace
+        - generic [ref=f76e60]:
+          - generic [ref=f76e62]:
+            - generic [ref=f76e63]: 📊
+            - paragraph [ref=f76e64]: Global Data Marketplace
+            - paragraph [ref=f76e65]: AI-Powered Data Discovery
+          - generic [ref=f76e66]:
+            - generic [ref=f76e67]: 10K+
+            - generic [ref=f76e68]: Datasets
+          - generic [ref=f76e69]:
+            - generic [ref=f76e70]: 500+
+            - generic [ref=f76e71]: Providers
+      - generic [ref=f76e74]:
+        - heading "Why Choose IntimeGDT?" [level=3] [ref=f76e75]
+        - generic [ref=f76e76]:
+          - generic [ref=f76e77]:
+            - img "Extensive Marketplace" [ref=f76e78]
+            - generic [ref=f76e79]:
+              - heading "Extensive Marketplace" [level=5] [ref=f76e80]
+              - paragraph [ref=f76e81]: Access thousands of data, technology, and solution providers.
+          - generic [ref=f76e82]:
+            - img "Custom Data Solutions" [ref=f76e83]
+            - generic [ref=f76e84]:
+              - heading "Custom Data Solutions" [level=5] [ref=f76e85]
+              - paragraph [ref=f76e86]: Benefit from free, curated, and bespoke datasets tailored to your needs.
+          - generic [ref=f76e87]:
+            - img "Workflow Management" [ref=f76e88]
+            - generic [ref=f76e89]:
+              - heading "Workflow Management" [level=5] [ref=f76e90]
+              - paragraph [ref=f76e91]: Streamline your research, acquisition, and collaboration processes.
+          - generic [ref=f76e92]:
+            - img "Compliance Built-In" [ref=f76e93]
+            - generic [ref=f76e94]:
+              - heading "Compliance Built-In" [level=5] [ref=f76e95]
+              - paragraph [ref=f76e96]: Our platform includes built-in tools to manage AI compliance and data use agreements effectively.
+          - generic [ref=f76e97]:
+            - img "For Enterprises & Researchers" [ref=f76e98]
+            - generic [ref=f76e99]:
+              - heading "For Enterprises & Researchers" [level=5] [ref=f76e100]
+              - paragraph [ref=f76e101]: Access global data sources for AI, machine learning, analytics, and more.
+          - generic [ref=f76e102]:
+            - img "Technology-Driven Platform" [ref=f76e103]
+            - generic [ref=f76e104]:
+              - heading "Technology-Driven Platform" [level=5] [ref=f76e105]
+              - paragraph [ref=f76e106]: Utilize AI-powered search, vectors, recommendations, and more.
+      - generic [ref=f76e110]:
+        - generic [ref=f76e111]:
+          - heading "Powering AI, Analytics, Research and Machine Learning with the Right Data" [level=3] [ref=f76e112]
+          - paragraph [ref=f76e113]: IntimeGDT connects data professionals, researchers, and enterprises with thousands of vetted data providers, cutting-edge technology, and specialized services—all in one secure platform.
+          - link "Join as a User" [ref=f76e114] [cursor=pointer]:
+            - /url: /pricing
+        - generic [ref=f76e115]:
+          - generic [ref=f76e116]: Artificial Intelligence
+          - generic [ref=f76e117]: Generative AI
+          - generic [ref=f76e118]: Machine Learning
+          - generic [ref=f76e119]: Analytics
+      - generic [ref=f76e126]:
+        - heading "Discover a World of Data" [level=3] [ref=f76e127]
+        - paragraph [ref=f76e128]: Our platform is designed to meet the diverse needs of data-driven organizations with cutting-edge solutions.
+      - generic [ref=f76e137]:
+        - heading "Streamline Data Projects with Powerful Tools" [level=3] [ref=f76e138]
+        - paragraph [ref=f76e139]: Manage your data acquisition projects seamlessly with our built-in project management and compliance tools.
+      - generic [ref=f76e143]:
+        - generic [ref=f76e144]:
+          - heading "For Data Providers, Technology Experts, and Solution Leaders" [level=3] [ref=f76e145]
+          - paragraph [ref=f76e146]: Join the IntimeGDT community to offer your data, cutting-edge technology, AI-driven services or solutions to a rapidly growing community of data professionals.
+          - link "Join as a Provider" [ref=f76e147] [cursor=pointer]:
+            - /url: /pricing
+        - img "Become a Provider" [ref=f76e149]
+  - contentinfo [ref=f76e150]:
+    - generic [ref=f76e152]:
+      - img "IntimeGDT Logo" [ref=f76e153]
+      - generic [ref=f76e154]:
+        - link "Join Us Today" [ref=f76e155] [cursor=pointer]:
+          - /url: /auth/sign-up
+        - link "About Us" [ref=f76e156] [cursor=pointer]:
+          - /url: /about
+        - link "Contact Us" [ref=f76e157] [cursor=pointer]:
+          - /url: /contact
+        - link "Help Center" [ref=f76e158] [cursor=pointer]:
+          - /url: /help
+        - link "Privacy Policy" [ref=f76e159] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Terms & Conditions" [ref=f76e160] [cursor=pointer]:
+          - /url: /terms-and-conditions
+      - generic [ref=f76e161]:
+        - paragraph [ref=f76e162]: © 2025 IntimeGDT Inc. All rights reserved.
+        - paragraph [ref=f76e163]: Your trusted global marketplace for data and AI solutions

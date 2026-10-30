@@ -36,6 +36,9 @@ import tlvcServices from "../assets/images/projects/tlvc-services.jpg";
 import tlvcStories from "../assets/images/projects/tlvc-stories.jpg";
 import tlvcApply from "../assets/images/projects/tlvc-apply.jpg";
 import tlvcAbout from "../assets/images/projects/tlvc-about.jpg";
+import intimeHome from "../assets/images/projects/intime-home.jpg";
+import intimeFeatures from "../assets/images/projects/intime-features.jpg";
+import intimeSection from "../assets/images/projects/intime-section.jpg";
 
 export interface Project {
   id: string;
@@ -237,6 +240,8 @@ export const projects: Project[] = [
       "Heroku",
     ],
     color: "from-purple-500 to-pink-500",
+    url: "https://intime-copy.netlify.app/",
+    images: [intimeHome, intimeFeatures, intimeSection],
   },
   {
     id: "bluebolivia",
