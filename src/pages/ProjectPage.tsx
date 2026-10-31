@@ -1,4 +1,4 @@
-import { Breadcrumb, PillLink, TechIcon } from "../components/ui";
+import { Breadcrumb, PillLink, ScreenshotGallery, TechIcon } from "../components/ui";
 import { projects, type Project } from "../data";
 import { Link } from "../lib/Link";
 
@@ -37,29 +37,7 @@ const ProjectPage = ({ project }: { project: Project }) => {
         </PillLink>
       </div>
 
-      {shots.length > 0 && (
-        <div className="mt-12">
-          <img
-            src={shots[0]}
-            alt={`${project.name} home page`}
-            fetchPriority="high"
-            className="aspect-[16/10] w-full rounded-card border border-line object-cover object-top"
-          />
-          {shots.length > 1 && (
-            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {shots.slice(1).map((src, shot) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`${project.name} screenshot ${shot + 2}`}
-                  loading="lazy"
-                  className="aspect-[16/10] w-full rounded-lg border border-line object-cover object-top"
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+      {shots.length > 0 && <ScreenshotGallery name={project.name} shots={shots} />}
 
       <div className="mt-16 grid gap-12 lg:grid-cols-2">
         <section>
