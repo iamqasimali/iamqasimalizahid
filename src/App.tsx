@@ -3,21 +3,31 @@ import { Header, Footer } from "./components/layout";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
+import ProjectPage from "./pages/ProjectPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { projects } from "./data";
 import { usePath, useScrollOnNavigate } from "./lib/router";
 import { applyRouteMeta } from "./lib/seo";
 
-const pages: Record<string, () => React.ReactElement> = {
-  "/": HomePage,
-  "/projects": ProjectsPage,
-  "/about": AboutPage,
-};
-
 function App() {
   const path = usePath();
-  const Page = pages[path] ?? HomePage;
+  const project = projects.find((item) => path === `/projects/${item.id}`);
 
   useScrollOnNavigate(path);
   useEffect(() => applyRouteMeta(path), [path]);
+
+  const page =
+    path === "/" ? (
+      <HomePage />
+    ) : path === "/projects" ? (
+      <ProjectsPage />
+    ) : path === "/about" ? (
+      <AboutPage />
+    ) : project ? (
+      <ProjectPage project={project} />
+    ) : (
+      <NotFoundPage />
+    );
 
   return (
     <div className="min-h-screen bg-canvas text-ink">
@@ -29,7 +39,7 @@ function App() {
       </a>
       <Header />
       <main id="main" key={path}>
-        <Page />
+        {page}
       </main>
       <Footer />
     </div>

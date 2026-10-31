@@ -29,8 +29,8 @@ const columns = [
     ],
   },
   {
-    title: "Live projects",
-    links: projects.filter((p) => p.url).map((p) => ({ label: p.name, href: p.url! })),
+    title: "Case studies",
+    links: projects.filter((p) => p.url).map((p) => ({ label: p.name, href: `/projects/${p.id}` })),
   },
   {
     title: "Company",
@@ -85,7 +85,7 @@ const Footer = () => (
               key={s.label}
               href={s.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               aria-label={s.label}
               className="grid size-10 place-items-center rounded-full border border-line bg-white transition-colors hover:bg-ink hover:text-white"
             >
@@ -116,7 +116,13 @@ const Footer = () => (
       </div>
 
       <div className="mt-16 flex flex-col gap-2 border-t border-line pt-6 text-xs text-muted md:flex-row md:justify-between">
-        <p>Designed and built by {profile.name}</p>
+        <p>
+          Designed and built by {profile.name}
+          {" · "}
+          <a href="/llms.txt" className="hover:text-ink">
+            AI index
+          </a>
+        </p>
         <p>© {new Date().getFullYear()} All rights reserved</p>
         <p>{profile.location} · UTC+5</p>
       </div>

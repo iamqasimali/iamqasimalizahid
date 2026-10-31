@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { PillLink, Reveal, SectionHeading, TechIcon } from "../ui";
 import { projects } from "../../data";
 import type { Project } from "../../data";
+import { Link } from "../../lib/Link";
 
 // Alternating panel styles stand in for screenshots.
 const panels = ["bg-ink text-white", "bg-studio text-ink", "bg-sand text-ink", "bg-ink-line text-white"];
@@ -45,22 +46,34 @@ const Cover = ({ project, index }: { project: Project; index: number }) => {
 
 export const ProjectCard = ({ project: p, index }: { project: Project; index: number }) => {
   const extraShots = p.images?.slice(1) ?? [];
-  const Wrapper = p.url ? "a" : "div";
-  const linkProps = p.url ? { href: p.url, target: "_blank", rel: "noopener noreferrer" } : {};
+  const detail = `/projects/${p.id}`;
+  const external = Boolean(p.url);
 
   return (
     <article>
-      <Wrapper {...linkProps} className="group block">
+      <a
+        href={p.url ?? detail}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className="group block"
+      >
         <Cover project={p} index={index} />
-        <div className="mt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <h3 className="inline-flex items-center gap-2 text-lg font-semibold">
+      </a>
+      <div className="mt-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <h3 className="text-lg font-semibold">
+          <Link href={detail} className="hover:text-muted">
             {p.name}
-            {p.url && (
-              <span className="text-xs font-normal text-muted group-hover:text-ink">
-                {new URL(p.url).hostname}
-              </span>
-            )}
-          </h3>
+          </Link>
+          {p.url && (
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 text-xs font-normal text-muted hover:text-ink"
+            >
+              {new URL(p.url).hostname}
+            </a>
+          )}
+        </h3>
           <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
             {p.techStack.slice(0, 4).map((t) => (
               <li key={t} className="inline-flex items-center gap-1.5">
@@ -70,7 +83,6 @@ export const ProjectCard = ({ project: p, index }: { project: Project; index: nu
             ))}
           </ul>
         </div>
-      </Wrapper>
       <p className="mt-2 text-[15px] leading-relaxed text-muted">
         <span className="text-ink">{p.role}:</span> {p.description}
       </p>

@@ -1,5 +1,5 @@
 {
-  "siteUrl": "https://iamqasimalizahid-dev.netlify.app",
+  "siteUrl": "https://iamqasimali.dev",
   "siteName": "Qasim Ali Zahid",
   "twitter": "@QasimA6",
   "image": "/og-image.jpg",
@@ -14,7 +14,7 @@
     },
     "/about": {
       "title": "About | Qasim Ali Zahid, Senior Full Stack Engineer",
-      "description": "Qasim Ali Zahid is a senior full stack engineer in Lahore, Pakistan. 7+ years of Ruby on Rails, React and TypeScript at QuickGem Solutions, OzaCloud, Healthwire and Techcreatix."
+      "description": "Qasim Ali Zahid is Technical Lead at QuickGem Solutions in Lahore, Pakistan. 7+ years of Ruby on Rails, React and TypeScript across QuickGem, Infinikorn, Ozacloud, Healthwire and Techcreatix."
     }
   }
 }

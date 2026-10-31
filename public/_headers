@@ -1,0 +1,23 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Link: </llms.txt>; rel="describedby"; type="text/markdown"
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/projects/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/404.html
+  X-Robots-Tag: noindex

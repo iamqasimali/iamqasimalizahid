@@ -1,4 +1,4 @@
-import { Reveal, PillLink } from "../components/ui";
+import { Breadcrumb, Reveal, PillLink } from "../components/ui";
 import { ProjectGrid } from "../components/sections/Projects";
 import { RepoGrid } from "../components/sections/OpenSource";
 import { profile, projects, repos, moreRepos } from "../data";
@@ -22,6 +22,7 @@ const ProjectsPage = () => (
   <>
     <div className="container-page pt-20 pb-8 text-center md:pt-28">
       <Reveal>
+        <Breadcrumb className="mb-8 flex justify-center" items={[{ href: "/", label: "Home" }, { label: "Projects" }]} />
         <h1 className="display text-6xl font-medium md:text-8xl">All Projects</h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-muted">
           {withScreens.length} live products, {others.length} more client platforms and{" "}
@@ -30,7 +31,7 @@ const ProjectsPage = () => (
       </Reveal>
     </div>
 
-    <Block title="Live products" subtitle="Platforms I built that you can open today. Every card links to the live site.">
+    <Block title="Live products" subtitle="Open the live site from the image, or the project page from the title.">
       <ProjectGrid items={withScreens} />
     </Block>
 

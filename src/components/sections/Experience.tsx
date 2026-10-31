@@ -5,11 +5,11 @@ import { experiences, profile } from "../../data";
 const Experience = ({ detailed = false }: { detailed?: boolean }) => (
   <section id="experience" className="py-24 md:py-36">
     <div className="container-page">
-      <SectionHeading title="Experience" subtitle="Four roles, seven years, mostly Rails and React." />
+      <SectionHeading title="Experience" subtitle="Five companies, seven years, mostly Rails and React." />
 
       <div className="border-t border-line">
         {experiences.map((e, i) => (
-          <Reveal key={e.company}>
+          <Reveal key={`${e.company}-${e.duration}`}>
             <div className="grid gap-3 border-b border-line py-8 md:grid-cols-[3rem_1.2fr_1.6fr_auto] md:gap-8">
               <span className="grid size-10 place-items-center rounded-lg border border-line text-xs">
                 {String(i + 1).padStart(2, "0")}
@@ -21,7 +21,7 @@ const Experience = ({ detailed = false }: { detailed?: boolean }) => (
                 </p>
               </div>
               <div>
-                {detailed ? (
+                {detailed && e.achievements.length > 0 ? (
                   <ul className="space-y-2 text-[15px] leading-relaxed text-muted">
                     {e.achievements.map((a) => (
                       <li key={a}>{a}.</li>
@@ -30,14 +30,16 @@ const Experience = ({ detailed = false }: { detailed?: boolean }) => (
                 ) : (
                   <p className="text-[15px] leading-relaxed text-muted">{e.summary}</p>
                 )}
-                <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted">
-                  {e.tech.map((t) => (
-                    <li key={t} className="inline-flex items-center gap-1.5">
-                      <TechIcon name={t} size={12} />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+                {e.tech.length > 0 && (
+                  <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted">
+                    {e.tech.map((t) => (
+                      <li key={t} className="inline-flex items-center gap-1.5">
+                        <TechIcon name={t} size={12} />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <p className="inline-flex items-start gap-2 text-sm whitespace-nowrap">
                 {e.duration}

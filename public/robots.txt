@@ -1,4 +1,10 @@
+# Qasim Ali Zahid — portfolio
+# Agent index: https://iamqasimali.dev/llms.txt
+# Full text: https://iamqasimali.dev/llms-full.txt
+# https://contentsignals.org/
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-Sitemap: https://iamqasimalizahid-dev.netlify.app/sitemap.xml
+Sitemap: https://iamqasimali.dev/sitemap.xml

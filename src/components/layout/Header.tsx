@@ -30,6 +30,7 @@ const Header = () => {
   }, [path]);
 
   const isActive = (item: (typeof navItems)[number]) => {
+    if (item.href === "/projects") return path === "/projects" || path.startsWith("/projects/");
     if (path !== "/") return item.href === path;
     if (!item.section) return false;
     // Sections without a nav item of their own (projects, skills...) keep the last match.

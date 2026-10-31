@@ -4,7 +4,9 @@ import { navigate } from "./router";
 type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
 export const Link = ({ href, onClick, ...rest }: LinkProps) => {
-  const internal = href.startsWith("/") && !href.endsWith(".pdf");
+  const pathOnly = href.split(/[?#]/)[0];
+  // Files such as /resume.pdf, /llms.txt and /about.md must load from the server.
+  const internal = pathOnly.startsWith("/") && !pathOnly.includes(".");
   return (
     <a
       href={href}

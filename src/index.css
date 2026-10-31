@@ -73,6 +73,14 @@ body {
   }
 }
 
+details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
+details[open] .faq-plus {
+  transform: rotate(45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

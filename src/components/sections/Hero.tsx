@@ -61,6 +61,7 @@ const Hero = () => {
           <img
             src={portrait}
             alt={`Portrait of ${profile.name}`}
+            fetchPriority="high"
             className="order-1 mx-auto aspect-[832/1150] w-64 rounded-panel object-cover object-top shadow-2xl shadow-ink/20 md:order-2 md:w-80 lg:w-[22rem]"
           />
 

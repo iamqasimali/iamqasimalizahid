@@ -6,7 +6,7 @@ const Skills = () => (
     <div className="container-page grid gap-14 lg:grid-cols-[1fr_2fr] lg:gap-16">
       <Reveal>
         <h2 className="display text-6xl font-medium md:text-7xl">
-          450+ APIs
+          5000+ APIs
           <br />
           Shipped
         </h2>
